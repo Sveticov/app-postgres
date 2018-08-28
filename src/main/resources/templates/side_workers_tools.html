@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="side">
+    <nav class="nav-inline navbar-fixed col-md-2 d-md-block bg-dark sidebar" style=" position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;">
+        <div class="sidebar-sticky">
+            <ul>
+                <li>
+                    <a class="nav-link text-white" href="/tools/save">Add new tool</a>
+                </li>
+                <!--<li>-->
+                <!--<a class="nav-link text-white" href="/workers/all/model">All Workers</a>-->
+                <!--</li>-->
+                <li class="nav-item">
+                    <a class="text-white nav-link" href="/workers/new/save">Add new worker</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/workers/all/model">All workers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/tools/models/all">All tools</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

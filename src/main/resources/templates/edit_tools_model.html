@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+    <title>Save Form Tools</title>
+</head>
+<body  style="background: url(../images/39691473-way-wallpapers.jpg); background-size: cover; background-repeat: no-repeat">
+<!--<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">-->
+<!--<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>-->
+<!--&lt;!&ndash;<form th:action="@{/workers/find/id}" th:object="${workers}" method="post" class="form-group-dark w-100">&ndash;&gt;-->
+
+<!--&lt;!&ndash;<input class="form-control form-control-dark w-100" type="text" th:field="*{id_workers}" placeholder="ID Worker"&ndash;&gt;-->
+<!--&lt;!&ndash;aria-label="ID Worker">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<input type="submit" value="sub" hidden>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+
+<!--<ul class="navbar-nav px-3">-->
+<!--<li class="nav-item text-nowrap">-->
+<!--<a class="nav-link" href="#">Sign out</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</nav>-->
+<div th:replace="toolbar_worker_tools.html"></div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container-fluid">
+    <div class="row">
+        <div th:include="side_workers_tools.html"></div>
+
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+                <div class="card  mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h1>Tool edit</h1>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/tools/update/model}" th:object="${tools_model_for_update_form}" method="post">
+                            <input type="text" name="edit_model_id_tool" th:value="${edit_model_id_tool}" hidden>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="name_tool">Name Tool: </label>
+                                        <!--<p th:text="${edit_model_name_tool}"></p>-->
+                                        <input id="name_tool" type="text" name="name_tools" th:field="*{name_tools}"/>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="date_tool">Date tool: </p></label>
+                                        <input id="date_tool" type="text" name="deta_tools" th:field="*{deta_tools}" />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="submit" class="btn btn-danger-outline" value="Add Tool"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<div th:include="footer_worker_tools.html"></div>
+</body>
+</html>

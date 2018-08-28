@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+    <title>All Tools</title>
+</head>
+<body >
+<nav class="navbar bg-dark fixed-top shadow">
+    <a class="navbar-brand mb-0 text-white" href="/">Svetikov</a>
+</nav>
+<br>
+<br>
+<br>
+
+<div class="container-fluid">
+    <div class="row">
+      <div th:include="side_workers_tools.html"></div>
+
+
+        <div class="col-md-5 main" style="padding-left: 50px;padding-right: 80px;left: 220px" >
+                <ul>
+                    <tbody th:each="tool : ${tools_models}">
+                    <li>
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-header">
+                                <h2 class="h2">Tool</h2>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="h2" th:text="${tool.name_tools}"></h2>
+                                <h4 class="h4" th:text="${tool.deta_tools}"></h4>
+                                <div>
+                                    <form th:action="@{/tools/find/id}" th:object="${tools_model_id}" method="post">
+                                        <input type="text" name="tools_id_model" th:value="${tool.id_tools}" hidden/>
+                                        <button type="submit" class="btn btn-outline-info">Find</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    </tbody>
+                </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

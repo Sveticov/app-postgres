@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+    <title>Find worker</title>
+</head>
+<body  style="background: url(../images/39691473-way-wallpapers.jpg); background-size: cover; background-repeat: no-repeat">
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Svetikov</a>
+    <form th:action="@{/workers/find/id}" th:object="${workers}" method="post" class="form-group-dark w-100">
+
+            <input  class="form-control form-control-dark w-100" type="text" th:field="*{id_workers}" placeholder="ID Worker" aria-label="ID Worker">
+            <!--<input type="submit" value="sub" hidden>-->
+
+    </form>
+
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+        </li>
+    </ul>
+</nav>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container-fluid">
+    <div class="row">
+        <!--<nav class="col-md-2 d-none d-md-block bg-light sidebar">-->
+            <!--<div class="sidebar-sticky">-->
+                <!--<div th:replace="toolbar_worker_tools.html"></div>-->
+            <!--</div>-->
+        <!--</nav>-->
+        <div th:include="side_workers_tools.html"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+                <!--<div class="card mb-4 shadow-sm">-->
+                    <!--<div class="card-body">-->
+                        <!--<form th:action="@{/workers/find/id}" th:object="${workers}" method="post">-->
+
+                            <!--<p> Worker find ID:<input type="number" th:field="*{id_workers}"/></p>-->
+                            <!--<input type="submit" value="sub" class="btn btn-success">-->
+
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <form action="#" th:action="@{/workers/new/save}" th:object="${workers}" method="post">
+                            <table>
+                                <tr>
+                                    <td> Worker name:<input type="text" th:field="*{name_worker}"/></td>
+                                    <td th:if="${#fields.hasErrors('name_worker')}" th:errors="*{name_worker}">Name
+                                        Error
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Worker lname:<input type="text" th:field="*{last_name_worker}"/></td>
+                                    <td th:if="${#fields.hasErrors('last_name_worker')}"
+                                        th:errors="*{last_name_worker}">Last Name
+                                        Error
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Worker lname:<input type="text" th:field="*{email_worker}"/></td>
+                                    <td th:if="${#fields.hasErrors('email_worker')}" th:errors="*{email_worker}">Email
+                                        error
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <tbody th:each="tool : ${tools}">
+                                    <td>
+
+                                        <input type="checkbox" name="tool_id" th:value="${tool.id_tools}"/>
+                                        <label th:text="${tool.name_tools}"/>
+
+                                    </td>
+                                    </tbody>
+                                </tr>
+                            </table>
+                            <!--<p> Worker find ID:<input type="number" th:field="*{id_workers}"/></p>-->
+
+                            <input type="submit" value="sub" class="btn btn-success">
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+<div th:include="footer_worker_tools.html"></div>
+</body>
+</html>

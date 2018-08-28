@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body >
+<div th:fragment="toolbar_wt">
+
+    <nav class="navbar bg-dark fixed-top shadow">
+        <a class="navbar-brand mb-0 text-white" href="/">Svetikov</a>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-outline-danger" type="submit">Logout</button>
+        </form>
+
+    </nav>
+    <br>
+    <br>
+    <br>
+
+    <!--<ul class="nav flex-column">-->
+        <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/workers/new/save">Back Form</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/workers/all/model">All models</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/tools/save">Tools add new model</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="/tools/save">Tools add new model</a>-->
+        <!--</li>-->
+    <!--</ul>-->
+</div>
+
+</body>
+</html>

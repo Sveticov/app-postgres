@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tools New</title>
+</head>
+<body style="width: 50%; background : url(../images/39691473-way-wallpapers.jpg);background-size: cover;
+background-repeat: no-repeat;">
+<!--<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">-->
+<!--<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>-->
+<!--&lt;!&ndash;<form th:action="@{/workers/find/id}" th:object="${workers}" method="post" class="form-group-dark w-100">&ndash;&gt;-->
+
+<!--&lt;!&ndash;<input class="form-control form-control-dark w-100" type="text" th:field="*{id_workers}" placeholder="ID Worker"&ndash;&gt;-->
+<!--&lt;!&ndash;aria-label="ID Worker">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<input type="submit" value="sub" hidden>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+
+<!--<ul class="navbar-nav px-3">-->
+<!--<li class="nav-item text-nowrap">-->
+<!--<a class="nav-link" href="#">Sign out</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</nav>-->
+<div th:replace="toolbar_worker_tools.html"></div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container-fluid">
+    <div class="row">
+        <!--<nav class="col-md-2 d-none d-md-block bg-light sidebar">-->
+        <!--<div class="sidebar-sticky">-->
+        <!--<div th:replace="toolbar_worker_tools.html"></div>-->
+        <!--</div>-->
+        <!--</nav>-->
+        <div th:include="side_workers_tools.html"></div>
+
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="left: 270px">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>New Tool</h1>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h2 th:text="${name_tools_new}"/>
+                                        <h3 th:text="${date_tools_new}"/>
+                                        <p th:text="${id_tools_new}"/>
+                                    </div>
+                                    <div class="col">
+                                        <form th:action="@{/tools/model/delete}" method="post">
+                                            <input type="text" name="tools_id_model" th:value="${id_tools_new}" hidden>
+                                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                        </form>
+                                        <form th:action="@{/tools/model/edit}" method="post">
+                                            <input type="text" name="tools_id_model" th:value="${id_tools_new}" hidden>
+                                            <button class="btn btn-outline-info">Edit</button>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="container col-sm-4">-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<a href="/workers/new/save">Back Form</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="/workers/all/model">All models</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="/tools/save">Tools add new model</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="/tools/save">Tools add new model</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+            </div>
+        </main>
+    </div>
+</div>
+<div th:include="footer_worker_tools.html"></div>
+</body>
+</html>
